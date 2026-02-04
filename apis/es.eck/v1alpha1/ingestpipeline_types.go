@@ -24,6 +24,8 @@ import (
 type IngestPipelineSpec struct {
 	// +optional
 	TargetConfig CommonElasticsearchConfig `json:"targetInstance,omitempty"`
+	// +optional
+	PipelineName string `json:"pipelineName,omitempty"`
 
 	Body string `json:"body"`
 }
@@ -32,8 +34,8 @@ type IngestPipelineSpec struct {
 type IngestPipelineStatus struct {
 }
 
-//+kubebuilder:object:root=true
-//+kubebuilder:subresource:status
+// +kubebuilder:object:root=true
+// +kubebuilder:subresource:status
 
 // IngestPipeline is the Schema for the ingestpipelines API
 type IngestPipeline struct {
@@ -44,7 +46,7 @@ type IngestPipeline struct {
 	Status IngestPipelineStatus `json:"status,omitempty"`
 }
 
-//+kubebuilder:object:root=true
+// +kubebuilder:object:root=true
 
 // IngestPipelineList contains a list of IngestPipeline
 type IngestPipelineList struct {

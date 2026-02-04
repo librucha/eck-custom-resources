@@ -41,6 +41,8 @@ spec:
             properties:
               body:
                 type: string
+              pipelineName:
+                type: string
               targetInstance:
                 properties:
                   name:

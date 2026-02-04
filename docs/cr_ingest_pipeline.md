@@ -12,11 +12,12 @@ in official documentation.
 
 ## Fields
 
-| Key                       | Type   | Description                                                                                     |
-|---------------------------|--------|-------------------------------------------------------------------------------------------------|
-| `metadata.name`           | string | Name of the Ingest Pipeline                                                                     |
-| `spec.targetInstance.name`| string | Name of the [Elasticsearch Instance](cr_elasticsearch_instance.md) to which this IngestPipeline will be deployed to |
-| `spec.body`               | string | Ingest Pipeline definition - same you would use when creating ingest pipeline using ES REST API |
+| Key                        | Type   | Description                                                                                                                        |
+|----------------------------|--------|------------------------------------------------------------------------------------------------------------------------------------|
+| `metadata.name`            | string | Name of the Ingest Pipeline                                                                                                        |
+| `spec.targetInstance.name` | string | Name of the [Elasticsearch Instance](cr_elasticsearch_instance.md) to which this IngestPipeline will be deployed to                |
+| `spec.pipelineName`        | string | Optional name of the pipeline. Usable for pipelines with specials characters e.g. `pipeline@custom`. This override `metadata.name` |
+| `spec.body`                | string | Ingest Pipeline definition - same you would use when creating ingest pipeline using ES REST API                                    |
 
 ## Example
 
@@ -28,6 +29,7 @@ metadata:
 spec:
   targetInstance:
     name: elasticsearch-quickstart
+  pipelineName: ingestpipeline-sample@custom
   body: |
     {
       "description" : "Ingest pipeline sample",
